@@ -60,15 +60,47 @@ $posts = [
 </head>
 
 <body>
+    <h2>Soluzione con il foreach</h2>
+    <!-- Soluzione con il foreach -->
     <ul>
-        <?php for ($i = 0; $i < count($posts); $i++) : ?>
+        <?php foreach($posts as $key => $data) { ?> 
             <li>
-                <?php echo $posts[$i]; ?>
-                <?php echo $posts[$i]['title']; ?>
-                <?php echo $posts[$i]['author']; ?>
-                <?php echo $posts[$i]['text']; ?>
+                <?php echo $key; ?>
+                <ul>
+                    <?php for ($i = 0; $i < count($data); $i++){ ?>
+                        <li><?php  echo $data[$i]['title']?></li>
+                        <li><?php  echo $data[$i]['author']?></li>
+                        <li><?php  echo $data[$i]['text']?></li>
+                        <li></li>
+                    <?php } ?>
+                </ul>
             </li>
-        <?php endfor; ?>
+        <?php }; ?>
+    </ul>
+<hr>
+
+<!-- Soluzione con il for normale -->
+
+<h2>Soluzione con il for normale</h2>
+    <ul>
+        <?php $date= array_keys($posts); ?>
+
+        <?php for($j=0; $j < count($posts); $j++) { ?> 
+            <li>
+                <?php echo $date[$j]; ?>
+                <ul>
+
+                    <?php $current=$posts[$date[$j]]; ?>
+                    
+                    <?php for ($i = 0; $i < count($current); $i++){ ?>
+                        <li><?php  echo $current[$i]['title']?></li>
+                        <li><?php  echo $current[$i]['author']?></li>
+                        <li><?php  echo $current[$i]['text']?></li>
+                        <li></li>
+                    <?php } ?>
+                </ul>
+            </li>
+        <?php }; ?>
     </ul>
 </body>
 
