@@ -37,7 +37,7 @@ var_dump($age);
 
 <body>
     <div>
-        <?php if (strlen($name) > 3 && strpos($mail, '.') && strpos($mail, '@') && !is_nan($age)) {
+        <?php if (strlen($name) > 3 && strpos($mail, '.') != false && strpos($mail, '@') != false && !is_nan($age)) { //strpos restituisce false se il carattere cercato è in prima posizione
             echo 'Accesso Riuscito';
         } else {
             echo 'Accesso Negato';
