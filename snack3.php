@@ -4,6 +4,14 @@ Snack 3
 Creare un array con 15 numeri casuali, 
 tenendo conto che l’array non dovrà contenere lo stesso numero più di una volta.
 */ 
+
+$rands=[];
+
+for ($i = 0; $i < 15; $i++) {
+    $rands[]= rand(0,15);
+};
+
+$rands = array_unique($rands); // array_unique rimuove  i doppioni da un'array
 ?>
 
 <!DOCTYPE html>
@@ -17,9 +25,9 @@ tenendo conto che l’array non dovrà contenere lo stesso numero più di una vo
 <body>
     <h2>I tuoi numeri</h2>
     <ul>
-    <?php for ($i = 0; $i < 15; $i++) {?>
-    <li><?php echo rand(0, 15) ?></li>
-    <?php } ?>
+        <?php for ($i = 0; $i < count($rands); $i++){ ?>
+         <li><?php echo $rands[$i]?></li>
+        <?php } ?>
     </ul>
 </body>
 </html>
